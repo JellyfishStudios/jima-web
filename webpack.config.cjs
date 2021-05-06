@@ -15,20 +15,24 @@ const server = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: [["@babel/preset-env", {"modules": false}], "@babel/preset-react"]
-          }
+            presets: [
+              ['@babel/preset-env', {
+                targets: {
+                  node: "15.3.0",
+                },
+              }],
+              '@babel/preset-react'
+            ],
+          },
         },
         exclude: /node_modules/
       }
     ]
   },
-  resolve: {
-    extensions: [".js", ".jsx", ".json", ".wasm", ".mjs", "*"]
-  },
   externals: [nodeExternals()],
   node: {
     __dirname: false
-  },
+  }
 };
 
 const client = {

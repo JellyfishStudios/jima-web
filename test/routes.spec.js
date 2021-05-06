@@ -1,9 +1,9 @@
-let request = require('supertest');
-let app = require('../src/server/routes/spa');
+import request from 'supertest';
+import spa from '../src/routes/spa.js';
 
 describe('GET /', () => {
   it('should return hello world', (done) => {
-    request(app)
+    request(spa)
       .get('/')
       .expect('hello world', done);
   });
