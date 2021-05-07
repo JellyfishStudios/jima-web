@@ -98,15 +98,15 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
-/***/ "./src/routes/spa.js":
-/*!***************************!*\
-  !*** ./src/routes/spa.js ***!
-  \***************************/
+/***/ "./src/routes/appshell.js":
+/*!********************************!*\
+  !*** ./src/routes/appshell.js ***!
+  \********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var handlebars__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! handlebars */ \"handlebars\");\n/* harmony import */ var handlebars__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(handlebars__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _public_components_app_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../public/components/app.js */ \"./src/public/components/app.js\");\n\n\n\n\n\nconst router = express__WEBPACK_IMPORTED_MODULE_0___default.a.Router();\nrouter.get('/', (req, res) => {\n  const hbsTemplate = handlebars__WEBPACK_IMPORTED_MODULE_1___default.a.compile(`\n        <html>\n        <head><title>My First SSR</title></head>\n            <body>\n                <h1>My First Server Side Render</h1>\n                <div id=\"app\">{{{app}}}</div>\n                <script src=\"/static/client.bundle.js\" charset=\"utf-8\"></script>\n                <script src=\"/static/vendors~client.bundle.js\" charset=\"utf-8\"></script>\n            </body>\n        </html>`);\n  const html = hbsTemplate({\n    app: react_dom_server__WEBPACK_IMPORTED_MODULE_3___default.a.renderToString( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_public_components_app_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"], null))\n  });\n  res.status(200).send(html);\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (router);\n\n//# sourceURL=webpack:///./src/routes/spa.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _public_components_app_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../public/components/app.js */ \"./src/public/components/app.js\");\n\n\n\n\nconst router = express__WEBPACK_IMPORTED_MODULE_0___default.a.Router();\nrouter.get('/', (req, res) => {\n  //Serves the body of the page aka \"main.handlebars\" to the container //aka \"index.handlebars\"\n  res.render('appshell', {\n    layout: false,\n    app: react_dom_server__WEBPACK_IMPORTED_MODULE_2___default.a.renderToString( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_public_components_app_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null))\n  });\n});\n/* router.get('/', (req, res) => {\n    const hbsTemplate = HBS.compile(`\n        <html>\n        <head><title>My First SSR</title></head>\n            <body>\n                <h1>My First Server Side Render</h1>\n                <div id=\"app\">{{{app}}}</div>\n                <script src=\"/static/client.bundle.js\" charset=\"utf-8\"></script>\n                <script src=\"/static/vendors~client.bundle.js\" charset=\"utf-8\"></script>\n            </body>\n        </html>`);\n\n    const html = hbsTemplate({app: ReactDOMServer.renderToString(<App />)});\n\n    res.status(200).send(html);\n}); */\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (router);\n\n//# sourceURL=webpack:///./src/routes/appshell.js?");
 
 /***/ }),
 
@@ -118,7 +118,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var expr
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _routes_spa_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./routes/spa.js */ \"./src/routes/spa.js\");\n\n\n\nconst port = 8000;\nconst app = express__WEBPACK_IMPORTED_MODULE_0___default()();\napp.use('/static', express__WEBPACK_IMPORTED_MODULE_0___default.a.static(path__WEBPACK_IMPORTED_MODULE_1___default.a.join(__dirname, 'public')));\napp.use('/', _routes_spa_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\napp.listen(port, () => {\n  console.info(`Listening on ${port}.`);\n});\n\n//# sourceURL=webpack:///./src/server.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var express_handlebars__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! express-handlebars */ \"express-handlebars\");\n/* harmony import */ var express_handlebars__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(express_handlebars__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _routes_appshell_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routes/appshell.js */ \"./src/routes/appshell.js\");\n\n\n\n\nconst port = 8000;\nconst app = express__WEBPACK_IMPORTED_MODULE_1___default()();\napp.set('view engine', 'handlebars');\napp.engine('handlebars', express_handlebars__WEBPACK_IMPORTED_MODULE_2___default()());\napp.use('/static', express__WEBPACK_IMPORTED_MODULE_1___default.a.static(path__WEBPACK_IMPORTED_MODULE_0___default.a.join(__dirname, 'public')));\napp.use('/', _routes_appshell_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"]);\napp.listen(port, () => {\n  console.info(`Listening on ${port}.`);\n});\n\n//# sourceURL=webpack:///./src/server.js?");
 
 /***/ }),
 
@@ -133,14 +133,14 @@ eval("module.exports = require(\"express\");\n\n//# sourceURL=webpack:///externa
 
 /***/ }),
 
-/***/ "handlebars":
-/*!*****************************!*\
-  !*** external "handlebars" ***!
-  \*****************************/
+/***/ "express-handlebars":
+/*!*************************************!*\
+  !*** external "express-handlebars" ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = require(\"handlebars\");\n\n//# sourceURL=webpack:///external_%22handlebars%22?");
+eval("module.exports = require(\"express-handlebars\");\n\n//# sourceURL=webpack:///external_%22express-handlebars%22?");
 
 /***/ }),
 

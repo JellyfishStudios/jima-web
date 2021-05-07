@@ -1,5 +1,5 @@
 import request from 'supertest';
-import spa from '../src/routes/spa.js';
+import spa from '../src/routes/appshell.js';
 
 describe('GET /', () => {
   it('should return hello world', (done) => {
