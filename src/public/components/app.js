@@ -1,22 +1,27 @@
-import React, {Component} from 'react';
+import React from 'react';
+
+import { makeStyles} from "@material-ui/core/styles";
+import Grid from '@material-ui/core/Grid';
 
 import Clicker from './clicker.js';
 
-class App extends Component {
-    constructor(props) {
-        super(props);
+const useStyles = makeStyles((theme) => ({
+    grid: {
+      width: 100
     }
+}));
 
-    render() {
-        const { classes } = this.props;
+export default function App() {
+    const classes = useStyles();
 
-        return(
-            <div>
-                <h1>Cardano Jima, a secure and scalable AWS based stakepool hosted in Tokyo.</h1>
+    return(
+        <Grid container className={classes.grid} spacing={1} >
+            <Grid item xs={12} >    
                 <Clicker initialCount={10} />
-            </div>
-        ); 
-    }
+            </Grid>
+            <Grid item xs={12}>    
+                <Clicker initialCount={10} />
+            </Grid>
+        </Grid>
+    );
 }
-
-export default App;

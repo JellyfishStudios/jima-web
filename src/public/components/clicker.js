@@ -1,31 +1,18 @@
+import React, {useState} from 'react';
 
-import React, {Component} from 'react';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 
-class Clicker extends Component {
-    constructor(props) {
-        super(props);
+export default function Clicker (props) {
+    const [count, setCount] = useState(props.initialCount);
 
-        this.state = {
-            count: props.initialCount
-        }
-    }
-
-    render() {
-        const { classes } = this.props;
-
-        return(
-            <div>
-                <p>You clicked me {this.state.count} times already!</p>
-                <button onClick={() => {
-                    this.setState({
-                        count: this.state.count + 1
-                    });
-                }}>
-                    I'm a Button
-                </button>
-            </div>
-        ); 
-    }
+    return(
+        <Grid container spacing={1}>
+            <Button variant="contained" color="primary" onClick={() => {
+                setCount(count + 1);
+            }}>
+                Clicked: {count}
+            </Button>
+        </Grid>
+    );
 }
-
-export default Clicker;
