@@ -26,7 +26,7 @@ router.get('*', (req, res) => {
     const hbsTemplate = handlebars.compile(`
         <html>
             <head>
-                <title>Cardano Jima</title>
+                <title>Cardano Jima!</title>
                 <style id="css-server-side">{{{css}}}</style>
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />

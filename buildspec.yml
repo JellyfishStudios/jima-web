@@ -5,21 +5,22 @@ phases:
     commands:
       - echo Installing source NPM dependencies...
       - npm install
-      - echo Installing Mocha...
-      - npm install -g mocha
   pre_build:
     commands:
       - echo Running linter
       - npm run lint
+      - echo Running unit tests
+      - npm run test
   build:
     commands:
       - echo Build started on `date`
       - echo Compiling the Node.js code
-      - echo Running unit tests
-      - npm test
+      - npm run build
   post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
   files:
-    - '**/*'
+    - 'dist/**/*'
+    - 'appspec.yml'
+    - 'scripts'

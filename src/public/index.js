@@ -24,3 +24,7 @@ function Main() {
 }
 
 ReactDOM.hydrate(<Main />, document.querySelector("#app"));
+
+if(module.hot){
+  module.hot.accept();
+}

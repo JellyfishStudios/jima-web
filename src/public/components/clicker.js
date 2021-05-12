@@ -11,7 +11,7 @@ export default function Clicker (props) {
             <Button variant="contained" color="primary" onClick={() => {
                 setCount(count + 1);
             }}>
-                Clicked: {count}
+               {count}
             </Button>
         </Grid>
     );
