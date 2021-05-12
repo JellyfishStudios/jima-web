@@ -23,22 +23,20 @@ router.get('*', (req, res) => {
         )
     );
 
-    const hbsTemplate = handlebars.compile(`
+    const html = `
         <html>
             <head>
                 <title>Cardano Jima!</title>
-                <style id="css-server-side">{{{css}}}</style>
+                <style id="css-server-side">${sheets.toString()}</style>
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
             </head>
             <body>
-                <div id="app">{{{content}}}</div>
-                <script src="/static/client.bundle.js" charset="utf-8"></script>
-                <script src="/static/vendors~client.bundle.js" charset="utf-8"></script>
+                <div id="app">${content}</div>
+                <script src="/public/client.bundle.js" charset="utf-8"></script>
+                <script src="/public/vendors~client.bundle.js" charset="utf-8"></script>
             </body>
-        </html>`);
-
-    const html = hbsTemplate({content: content, css: sheets.toString()});
+        </html>`;
 
     res.status(200).send(html);
 }); 

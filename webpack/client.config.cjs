@@ -4,6 +4,7 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 
 module.exports = (env, argv) => {
   return {
+    mode: argv.mode,
     entry: {
       client: argv.mode === "development"
         ? ["webpack-hot-middleware/client?reload=true", './src/public']

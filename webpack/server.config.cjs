@@ -4,6 +4,7 @@ const webpack = require('webpack');
 
 module.exports = (env, argv) => {
   return {
+    mode: argv.mode,
     target: "node",
     entry: './src/server.js',
     output: {
