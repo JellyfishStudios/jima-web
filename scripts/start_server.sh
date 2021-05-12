@@ -1,2 +1,3 @@
 #!/bin/bash
-forever start /var/nodeapp/src/index.js
+cd /var/nodeapp
+forever start dist/server.js

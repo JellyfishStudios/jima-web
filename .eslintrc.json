@@ -21,7 +21,7 @@
       "no-redeclare": 0,
       "no-this-before-super": 1,
       "no-unreachable": 1,
-      "no-unused-vars": 1,
+      "no-unused-vars": 0,
       "no-use-before-define": 0,
       "constructor-super": 1,
       "curly": 0,
