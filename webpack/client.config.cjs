@@ -24,14 +24,17 @@ module.exports = (env, argv) => {
       rules: [
         {
           test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
           use: {
             loader: "babel-loader",
             options: {
-              presets: ["@babel/preset-env", "@babel/preset-react"]
+              presets: ["@babel/preset-env", "@babel/preset-react"],
+              plugins: [
+                argv.mode === "development" && require.resolve('react-refresh/babel')
+              ].filter(Boolean)
             }
-          },
-          exclude: /node_modules/
-        }
+          }
+        },
       ]
     },
     resolve: {
@@ -46,7 +49,7 @@ module.exports = (env, argv) => {
       }),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(argv.mode)
-      }),
+      })
     ]
   };
 };

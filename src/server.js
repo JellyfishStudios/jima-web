@@ -25,8 +25,10 @@ if (process.env.NODE_ENV === 'development') {
         })
     );
 }
+else {
+    app.use('/public', express.static(path.join(__dirname, '../dist/public')));
+}
 
-app.use('/public', express.static(path.join(__dirname, '../dist/public')));
 app.use('/', appshell);
 
 app.listen(port, () => {
