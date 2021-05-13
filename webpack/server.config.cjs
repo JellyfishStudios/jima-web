@@ -29,6 +29,12 @@ module.exports = (env, argv) => {
             },
           },
           exclude: /node_modules/
+        },
+        {
+          test: /\.(jpg|png)$/,
+          use: {
+            loader: 'url-loader',
+          },
         }
       ]
     },
