@@ -4,9 +4,8 @@ import { makeStyles} from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 
-import HeroCard from './heroCard.js';
-import SpecificationCard from './specsCard.js';
-import ContactCard from './contactCard.js';
+import Hero from './hero.js';
+import Specs from './specs.js';
 import Footer from './footer.js';
 
 const useStyles = makeStyles((theme) => ({
@@ -23,8 +22,7 @@ const useStyles = makeStyles((theme) => ({
     gridItemAlternative: {
         backgroundColor: 'black',
         width: '100%',
-        color: 'white',
-        alignContent: 'center'
+        color: 'white'
     }
 }));
 
@@ -35,17 +33,16 @@ export default function App() {
         <Grid container className={classes.grid} >
             <Grid item xs={12} className={classes.gridItem} >    
                 <Container>
-                    <HeroCard />
+                    <Hero />
                 </Container>
             </Grid>
             <Grid item xs={12} className={classes.gridItemAlternative} >
                 <Container>
-                    <SpecificationCard />
+                    <Specs />
                 </Container>   
             </Grid>
             <Grid item xs={12} className={classes.gridItem}  > 
-                <Container>
-                    <ContactCard />   
+                <Container>  
                     <Footer /> 
                 </Container>     
             </Grid>

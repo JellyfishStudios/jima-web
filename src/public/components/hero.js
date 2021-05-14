@@ -5,24 +5,48 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 import HeroImage from '../../../images/CardanoJimaHero.png'
+import { BottomNavigation } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   headingCommentChar: {
     color: 'green'
+  },
+  keywords: {
+    color: 'green',
+    fontWeight: 'bold'
   },
   intro: {
     fontSize: '1.25rem'
   },
   poolInfo: {
     fontSize: '1rem'
+  },
+  heroImage: {
+    width: '292px',
+    [theme.breakpoints.up('sm')]: {
+      width: '592px',
+    },
+  },
+  heroImageItem: {
+    display: 'inline',
+    justifyContent: 'flex-end'
+  },
+  grid: {
+    maxWidth: '470px',
+    [theme.breakpoints.up('sm')]: {
+      maxWidth: '800px',
+    },
+    [theme.breakpoints.up('md')]: {
+      maxWidth: '1080px',
+    }
   }
 }));
 
-export default function HeroCard() {
+export default function Hero() {
     const classes = useStyles();
 
     return (
-      <Grid container >  
+      <Grid container className={classes.grid}  >  
         <Grid item xs={12} >
           <div>
             <Typography variant="h1" >    
@@ -45,18 +69,27 @@ export default function HeroCard() {
             </Typography>
             </div>
         </Grid>
-        <Grid container >
-          <Grid item xs={6} >
-            <img src={HeroImage} alt="Cardano Jima" />
+        <Grid item xs={12} >
+          <Grid container >
+            <Grid item xs={4} >
+              &nbsp;
+            </Grid>
+            <Grid item xs={8} >
+              <Typography variant="h2" > 
+                Secure and reliable Cardano stakepool hosted in Japan. Start staking your Cardano with us from the <b>4/July 2021</b> by by looking out for our ticker. 
+              </Typography>
+              <br />
+              <Typography variant="h3" > 
+                Ticker: <span className={classes.keywords}>JIMA</span> | 
+                Pledge: <span className={classes.keywords}>10,000</span> | 
+                Fee: <span className={classes.keywords}>2%</span> 
+              </Typography>
+            </Grid>
           </Grid>
-          <Grid item xs={6} >
-            <Typography variant="h2" > 
-              Professional and secure Cardano stakepool hosted in Tokyo. Start staking your Cardano with us from <b>July 2021</b> by by looking out for our ticker. 
-            </Typography>
-            <br />
-            <Typography variant="h3" > 
-              Ticker: JIMA | Pledge: 10,000 | Fee: 2% 
-            </Typography>
+        </Grid>
+        <Grid item xs={12} >
+          <Grid item xs={6} className={classes.heroImageItem}>
+            <img src={HeroImage} alt="Cardano Jima" className={classes.heroImage} />
           </Grid>
         </Grid>
       </Grid>

@@ -82,7 +82,7 @@ Resources:
                 - npm run lint
             build:
               commands:
-                - npm test
+                - npm run test
       TimeoutInMinutes: 10
       Environment:
         Type: LINUX_CONTAINER

@@ -31,15 +31,15 @@ Resources:
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Open ports 22 and 80
+      GroupDescription: Open ports 22 and 443
       SecurityGroupIngress:
       - IpProtocol: tcp
         FromPort: '22'
         ToPort: '22'
         CidrIp: 0.0.0.0/0
       - IpProtocol: tcp
-        FromPort: '80'
-        ToPort: '80'
+        FromPort: '443'
+        ToPort: '443'
         CidrIp: 0.0.0.0/0
 
   EC2InstanceRole:
@@ -109,8 +109,8 @@ Resources:
       LaunchConfigurationName: !Ref EC2LaunchConfiguration
       AvailabilityZones:
         Fn::GetAZs: "ap-northeast-1"
-      MinSize: "2"
-      MaxSize: "2"
+      MinSize: "1"
+      MaxSize: "1"
       LoadBalancerNames:
         - !Ref LoadBalancer
       Tags:

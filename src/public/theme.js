@@ -16,21 +16,18 @@ theme.typography.h1 = {
     },
     [theme.breakpoints.up('md')]: {
       fontSize: '1.6rem',
-    },
-    [theme.breakpoints.up('lg')]: {
-        fontSize: '2rem',
     }
   };
 
 theme.typography.h2 = {
-    fontSize: '1rem',
+    fontSize: '0.9rem',
     fontWeight: 'normal',
     
     [theme.breakpoints.up('sm')]: {
-      fontSize: '1.2rem',
+      fontSize: '1rem',
     },
     [theme.breakpoints.up('md')]: {
-      fontSize: '1.5rem',
+      fontSize: '1.2rem',
     }
 };
 
@@ -42,7 +39,7 @@ theme.typography.h3 = {
     fontSize: '1rem',
   },
   [theme.breakpoints.up('md')]: {
-    fontSize: '1.2rem',
+    fontSize: '1.1rem',
   }
 };
 
