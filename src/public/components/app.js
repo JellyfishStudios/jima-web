@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         alignItems: 'center'
     },
+    gridItemMain: {
+        width: '100%',
+        alignContent: 'center'
+    },
     gridItem: {
         width: '100%',
         alignContent: 'center'
@@ -31,7 +35,7 @@ export default function App() {
 
     return(
         <Grid container className={classes.grid} >
-            <Grid item xs={12} className={classes.gridItem} >    
+            <Grid item xs={12} className={classes.gridItemMain} >    
                 <Container>
                     <Hero />
                 </Container>

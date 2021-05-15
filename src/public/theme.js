@@ -9,13 +9,13 @@ const theme = createMuiTheme({
 theme.typography.h1 = {
     fontFamily: 'monospace',
     whiteSpace: 'pre',
-    fontSize: '0.7rem',
+    fontSize: '0.5rem',
     
     [theme.breakpoints.up('sm')]: {
-      fontSize: '1.2rem',
+      fontSize: '1rem',
     },
     [theme.breakpoints.up('md')]: {
-      fontSize: '1.6rem',
+      fontSize: '1.5rem',
     }
   };
 

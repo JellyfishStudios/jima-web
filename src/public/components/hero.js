@@ -15,12 +15,6 @@ const useStyles = makeStyles((theme) => ({
     color: 'green',
     fontWeight: 'bold'
   },
-  intro: {
-    fontSize: '1.25rem'
-  },
-  poolInfo: {
-    fontSize: '1rem'
-  },
   heroImage: {
     width: '292px',
     [theme.breakpoints.up('sm')]: {
