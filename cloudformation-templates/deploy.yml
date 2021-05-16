@@ -15,15 +15,6 @@ Parameters:
     AllowedPattern: "[\\x20-\\x7E]*"
     ConstraintDescription: can contain only ASCII characters.
 
-  GitHubToken:
-    NoEcho: true
-    Type: String
-    Description: Github Token generated from
-
-  GitHubRepoOwner:
-    Type: String
-    Description: Owner of the GitHub Repository
-
   GitHubRepoName:
     Type: String
     Description: Name of the GitHub Repository
@@ -32,10 +23,6 @@ Parameters:
     Type: String
     Description: Name of branch to use inside the GitHub Repository
     Default: master
-
-  S3ArtifactStore:
-    Type: String
-    Description: S3 Bucket where artifacts will be stored
     
   LatestAmiId:
     Description: Gets the latest AMI from Systems Manager Parameter store
