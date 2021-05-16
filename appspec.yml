@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/nodeapp/
+    destination: /var/jimaweb/
 hooks:
   AfterInstall:
     - location: scripts/npm-install.sh
