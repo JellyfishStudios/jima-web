@@ -36,10 +36,6 @@ Parameters:
   S3ArtifactStore:
     Type: String
     Description: S3 Bucket where artifacts will be stored
-
-  EC2KeyName:
-    Type: String
-    Description: Existing KeyName for EC2 instance
     
   LatestAmiId:
     Description: Gets the latest AMI from Systems Manager Parameter store
