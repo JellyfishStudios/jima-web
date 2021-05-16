@@ -2,26 +2,45 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: AWS CodePipeline for Node Builds
 
 Parameters:
+  NamingPrefix:
+    Type: String
+    Description: The naming prefix for resources created by this template.
+    Default: jimaweb
+
+  InstanceKeyName:
+    Description: Name of an existing EC2 KeyPair for SSH access to the relay nodes
+    Type: AWS::EC2::KeyPair::KeyName
+    MinLength: '1'
+    MaxLength: '255'
+    AllowedPattern: "[\\x20-\\x7E]*"
+    ConstraintDescription: can contain only ASCII characters.
+
   GitHubToken:
     NoEcho: true
     Type: String
     Description: Github Token generated from
+
   GitHubRepoOwner:
     Type: String
     Description: Owner of the GitHub Repository
+
   GitHubRepoName:
     Type: String
     Description: Name of the GitHub Repository
+
   GitHubBranch:
     Type: String
     Description: Name of branch to use inside the GitHub Repository
     Default: master
+
   S3ArtifactStore:
     Type: String
     Description: S3 Bucket where artifacts will be stored
+
   EC2KeyName:
     Type: String
     Description: Existing KeyName for EC2 instance
+    
   LatestAmiId:
     Description: Gets the latest AMI from Systems Manager Parameter store
     Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
@@ -31,15 +50,33 @@ Resources:
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Open ports 22 and 443
+      GroupDescription: Open ports 22 and 8080
+      GroupName: !Join
+        - '-'
+        - - !Ref NamingPrefix
+          - Instance-SG
       SecurityGroupIngress:
       - IpProtocol: tcp
         FromPort: '22'
         ToPort: '22'
         CidrIp: 0.0.0.0/0
       - IpProtocol: tcp
-        FromPort: '443'
-        ToPort: '443'
+        FromPort: '8080'
+        ToPort: '8080'
+        CidrIp: 0.0.0.0/0
+
+  LoadbalancerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Open port 80
+      GroupName: !Join
+        - '-'
+        - - !Ref NamingPrefix
+          - ELB-SG
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: '80'
+        ToPort: '80'
         CidrIp: 0.0.0.0/0
 
   EC2InstanceRole:
@@ -81,6 +118,7 @@ Resources:
       IamInstanceProfile: !Ref EC2InstanceProfile
       InstanceType: t2.micro
       ImageId: !Ref LatestAmiId
+      KeyName: !Ref InstanceKeyName
       LaunchConfigurationName: !Join [ '-' , [ !Ref GitHubRepoName, !Ref GitHubBranch, 'LaunchConfiguration' ] ]
       SecurityGroups:
       - Ref: InstanceSecurityGroup
@@ -96,7 +134,7 @@ Resources:
             sudo yum install -y nodejs
 
             cd /var
-            mkdir nodeapp
+            mkdir jimaweb
             
             cd /home/ec2-user
             wget https://aws-codedeploy-ap-northeast-1.s3.amazonaws.com/latest/install
@@ -110,7 +148,7 @@ Resources:
       AvailabilityZones:
         Fn::GetAZs: "ap-northeast-1"
       MinSize: "1"
-      MaxSize: "1"
+      MaxSize: "2"
       LoadBalancerNames:
         - !Ref LoadBalancer
       Tags:
@@ -124,16 +162,17 @@ Resources:
     Properties:
       AvailabilityZones:
         Fn::GetAZs: "ap-northeast-1"
-      SecurityGroups:
-      - !GetAtt InstanceSecurityGroup.GroupId
+      SecurityGroups: 
+      - !GetAtt LoadbalancerSecurityGroup.GroupId
       Listeners:
-      - LoadBalancerPort: '80'
-        InstancePort: '80'
-        Protocol: HTTP
+      - LoadBalancerPort: '443'
+        InstancePort: '8080'
+        Protocol: HTTPS
+        SSLCertificateId: "arn:aws:acm:ap-northeast-1:869229378759:certificate/031e7a97-d4ee-4efe-bb37-7fbbac064630"
       HealthCheck:
         HealthyThreshold: 2
         Interval: 30
-        Target: HTTP:80/
+        Target: HTTP:8080/
         Timeout: 5
         UnhealthyThreshold: 5
 

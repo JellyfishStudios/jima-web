@@ -2,7 +2,7 @@ import path from 'path';
 import express from 'express';
 import appshell from './routes/appshell.js';
 
-const port = 8000;
+const port = 8080;
 const app = express();
 
 if (process.env.NODE_ENV === 'development') {    

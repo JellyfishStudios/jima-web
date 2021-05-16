@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /var/nodeapp
+cd /var/jimaweb
 forever start dist/server.js

@@ -1,26 +1,45 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: AWS CodePipeline for Node Builds
 Parameters:
+  NamingPrefix:
+    Type: String
+    Description: The naming prefix for resources created by this template.
+    Default: jimaweb
+
+  InstanceKeyName:
+    Description: Name of an existing EC2 KeyPair for SSH access to the relay nodes
+    Type: AWS::EC2::KeyPair::KeyName
+    MinLength: '1'
+    MaxLength: '255'
+    AllowedPattern: "[\\x20-\\x7E]*"
+    ConstraintDescription: can contain only ASCII characters.
+
   GitHubToken:
     NoEcho: true
     Type: String
     Description: Github Token generated from
+
   GitHubRepoOwner:
     Type: String
     Description: Owner of the GitHub Repository
+
   GitHubRepoName:
     Type: String
     Description: Name of the GitHub Repository
+
   GitHubBranch:
     Type: String
     Description: Name of branch to use inside the GitHub Repository
     Default: master
+
   S3ArtifactStore:
     Type: String
     Description: S3 Bucket where artifacts will be stored
+
   EC2KeyName:
     Type: String
     Description: Existing KeyName for EC2 instance
+    
 Resources:
   CodeBuildRole:
     Type: "AWS::IAM::Role"

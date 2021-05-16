@@ -1,18 +1,18 @@
 #!/bin/bash
 
 echo creating codebuild resources
-aws cloudformation create-stack --stack-name node-app-codebuild --template-body file://cloudformation-templates/code-build.yml --capabilities CAPABILITY_IAM --parameters file://cloudformation-templates/parameters.json
-aws cloudformation wait stack-create-complete --stack-name node-app-codebuild
+aws cloudformation create-stack --stack-name jimaweb-build --template-body file://cloudformation-templates/code-build.yml --capabilities CAPABILITY_IAM --parameters file://cloudformation-templates/parameters.json
+aws cloudformation wait stack-create-complete --stack-name jimaweb-build
 
 echo creating codedeploy resources
-aws cloudformation create-stack --stack-name node-app-codedeploy --template-body file://cloudformation-templates/code-deploy.yml --capabilities CAPABILITY_IAM --parameters file://cloudformation-templates/parameters.json
-aws cloudformation wait stack-create-complete --stack-name node-app-codedeploy
+
+aws cloudformation wait stack-create-complete --stack-name jimaweb-deploy
 
 echo creating pipeline
-aws cloudformation create-stack --stack-name node-pipeline --template-body file://cloudformation-templates/codepipeline.yml --capabilities CAPABILITY_IAM --parameters file://cloudformation-templates/parameters.json
-aws cloudformation wait stack-create-complete --stack-name node-pipeline
+aws cloudformation create-stack --stack-name jimaweb-pipeline --template-body file://cloudformation-templates/codepipeline.yml --capabilities CAPABILITY_IAM --parameters file://cloudformation-templates/parameters.json
+aws cloudformation wait stack-create-complete --stack-name jimaweb-pipeline
 
 echo Public DNS
-aws cloudformation describe-stacks --stack-name node-app-codedeploy --query 'Stacks[0].Outputs[?OutputKey==`URL`].OutputValue'
+aws cloudformation describe-stacks --stack-name jimaweb-deploy --query 'Stacks[0].Outputs[?OutputKey==`URL`].OutputValue'
 
 exit
