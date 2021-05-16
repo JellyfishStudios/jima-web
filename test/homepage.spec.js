@@ -4,7 +4,7 @@ import {act} from 'react-dom/test-utils';
 
 import { expect } from 'chai';
 
-import App from '../src/public/components/app.js';
+import Footer from '../src/public/components/footer.js';
 
 var jsdom = require('mocha-jsdom');
 
@@ -25,11 +25,11 @@ afterEach(() => {
 });
 
 describe('App component', () => {
-  it('should return hello world', () => {
+  it('should show correct footer', () => {
     act(() => {
-      ReactDOM.render(<App />, container);
+      ReactDOM.render(<Footer />, container);
     });
 
-    expect(container.querySelector("h1").textContent).to.equal("Cardano Jima, a secure and scalable AWS based stakepool hosted in Tokyo.");
+    expect(container.querySelector("p").textContent).to.equal("© CARDANOJIMA.IO");
   });
 });
