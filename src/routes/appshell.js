@@ -1,7 +1,6 @@
 import Express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import handlebars from 'handlebars';
 
 import { ServerStyleSheets, ThemeProvider } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
@@ -27,6 +26,7 @@ router.get('*', (req, res) => {
         <html>
             <head>
                 <title>Cardano Jima!</title>
+                <meta name="viewport" content="width=device-width">
                 <style id="css-server-side">${sheets.toString()}</style>
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />

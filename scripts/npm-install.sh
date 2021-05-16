@@ -1,4 +1,4 @@
 #!/bin/bash
-cd /var/nodeapp
+cd /var/jimaweb
 npm install
 npm install -g forever
