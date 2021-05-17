@@ -7,7 +7,7 @@
 echo creating build resources
 aws cloudformation create-stack --stack-name jimaweb-build \
 	--region ap-northeast-1 \
-	--template-body file://cloudformation-templates/code-build.yml \
+	--template-body file://cloudformation-templates/build.yml \
     --capabilities CAPABILITY_IAM \
 	--parameters \
 		ParameterKey=NamingPrefix,ParameterValue=jimaweb \
@@ -22,7 +22,7 @@ aws cloudformation wait stack-create-complete --stack-name jimaweb-build
 echo creating deploy resources
 aws cloudformation create-stack --stack-name jimaweb-deploy \
 	--region ap-northeast-1 \
-	--template-body file://cloudformation-templates/code-deploy.yml \
+	--template-body file://cloudformation-templates/deploy.yml \
     --capabilities CAPABILITY_IAM \
 	--parameters \
 		ParameterKey=NamingPrefix,ParameterValue=jimaweb \
@@ -38,7 +38,7 @@ aws cloudformation wait stack-create-complete --stack-name jimaweb-deploy
 echo creating pipeline resources
 aws cloudformation create-stack --stack-name jimaweb-pipeline \
 	--region ap-northeast-1 \
-	--template-body file://cloudformation-templates/codepipeline.yml \
+	--template-body file://cloudformation-templates/pipeline.yml \
     --capabilities CAPABILITY_IAM \
 	--parameters \
 		ParameterKey=NamingPrefix,ParameterValue=jimaweb \

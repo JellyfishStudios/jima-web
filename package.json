@@ -9,7 +9,7 @@
     "build:prod": "webpack --config webpack/client.config.cjs --mode production && webpack --config webpack/server.config.cjs --mode production",
     "build:dev": "webpack --config webpack/server.config.cjs --mode development",
     "start": "node ./dist/server.js",
-    "cloudformation": "bash ./scripts/create-stacks.sh",
+    "cloudformation": "./scripts/create-stacks.sh"
   },
   "keywords": [],
   "author": "",
