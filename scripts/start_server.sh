@@ -1,3 +1,3 @@
 #!/bin/bash
 cd /var/jimaweb
-forever start dist/server.js
+NODE_ENV=production forever start dist/server.js

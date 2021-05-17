@@ -116,8 +116,7 @@ Resources:
               - 'dist/**/*'
               - 'scripts/**/*'
               - 'appspec.yml'
-            cache:
-              - 'node_modueles/**/*'
+              - 'node_modules/**/*'
       TimeoutInMinutes: 10
       Environment:
         Type: LINUX_CONTAINER

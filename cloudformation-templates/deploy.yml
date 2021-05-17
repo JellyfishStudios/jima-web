@@ -33,7 +33,7 @@ Resources:
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Open ports 22 and 8080
+      GroupDescription: Open ports 22 and 8080 (ALB only)
       GroupName: !Join
         - '-'
         - - !Ref NamingPrefix
@@ -46,20 +46,21 @@ Resources:
       - IpProtocol: tcp
         FromPort: '8080'
         ToPort: '8080'
-        CidrIp: 0.0.0.0/0
+        SourceSecurityGroupOwnerId: !GetAtt LoadBalancer.SourceSecurityGroup.OwnerAlias
+        SourceSecurityGroupName: !GetAtt LoadBalancer.SourceSecurityGroup.GroupName
 
   LoadbalancerSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Open port 80
+      GroupDescription: Open port 443
       GroupName: !Join
         - '-'
         - - !Ref NamingPrefix
-          - ELB-SG
+          - ALB-SG
       SecurityGroupIngress:
       - IpProtocol: tcp
-        FromPort: '80'
-        ToPort: '80'
+        FromPort: '443'
+        ToPort: '443'
         CidrIp: 0.0.0.0/0
 
   EC2InstanceRole:
