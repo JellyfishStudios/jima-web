@@ -5,7 +5,7 @@ import appshell from './routes/appshell.js';
 const port = 8080;
 const app = express();
 
-console.log(`Running Express/Node in ${process.env.NODE_ENV} mode.`)
+console.log(`Running Express/Node in ${process.env.NODE_ENV} mode.`);
 
 if (process.env.NODE_ENV === 'development') {    
     const webpack = require("webpack");
