@@ -8,19 +8,19 @@ import theme from './theme.js';
 import App from './components/app.js';
 
 function Main() {
-    React.useEffect(() => {
-      const styles = document.querySelector('#css-server-side');
-      if (styles) {
-        styles.parentElement.removeChild(styles);
-      }
-    });
-  
-    return (
-        <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <App />
-        </ThemeProvider>
-    );
+  React.useEffect(() => {
+    const styles = document.querySelector('#css-server-side');
+    if (styles) {
+      styles.parentElement.removeChild(styles);
+    }
+  });
+
+  return (
+    <ThemeProvider theme={theme}>
+        <CssBaseline />
+          <App />
+    </ThemeProvider>
+  );
 }
 
 ReactDOM.hydrate(<Main />, document.querySelector("#app"));

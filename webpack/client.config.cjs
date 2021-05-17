@@ -5,20 +5,13 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 module.exports = (env, argv) => {
   return {
     mode: argv.mode,
-    entry: {
-      client: argv.mode === "development"
-        ? ["webpack-hot-middleware/client?reload=true", './src/public']
-        : './src/public'
-    },
+    entry: argv.mode === "development"
+      ? ["webpack-hot-middleware/client?reload=true", './src/public']
+      : './src/public',
     output: {
       path: path.resolve(__dirname, "../dist/public/"),
       publicPath: "/public/",
       filename: "[name].bundle.js"
-    },
-    optimization: {
-      splitChunks: {
-          chunks: 'all'
-      }
     },
     module: {
       rules: [

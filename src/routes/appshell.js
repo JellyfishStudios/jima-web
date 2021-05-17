@@ -33,8 +33,7 @@ router.get('*', (req, res) => {
             </head>
             <body>
                 <div id="app">${content}</div>
-                <script src="/public/client.bundle.js" charset="utf-8"></script>
-                <script src="/public/vendors~client.bundle.js" charset="utf-8"></script>
+                <script src="/public/main.bundle.js" charset="utf-8"></script>
             </body>
         </html>`;
 
