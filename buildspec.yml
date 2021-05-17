@@ -4,7 +4,7 @@ phases:
   install:
     commands:
       - echo Installing source NPM dependencies...
-      - npm install
+      - npm install --production
   pre_build:
     commands:
       - echo Running linter
@@ -24,3 +24,5 @@ artifacts:
     - 'dist/**/*'
     - 'scripts/**/*'
     - 'appspec.yml'
+  cache:
+    - 'node_modueles/**/*'

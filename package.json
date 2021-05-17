@@ -10,9 +10,6 @@
     "build:dev": "webpack --config webpack/server.config.cjs --mode development",
     "start": "node ./dist/server.js",
     "cloudformation": "bash ./scripts/create-stacks.sh",
-    "cloudformation-build": "aws cloudformation create-stack --stack-name node-app-codebuild-resources --template-body file://cloudformation-templates/code-build.yml --capabilities CAPABILITY_IAM --parameters file://cloudformation-templates/parameters.json",
-    "cloudformation-deploy": "aws cloudformation create-stack --stack-name node-app-codedeploy-resources --template-body file://cloudformation-templates/code-deploy.yml --capabilities CAPABILITY_IAM --parameters file://cloudformation-templates/parameters.json",
-    "cloudformation-pipeline": "aws cloudformation create-stack --stack-name node-pipeline-stack --template-body file://cloudformation-templates/codepipeline.yml --capabilities CAPABILITY_IAM --parameters file://cloudformation-templates/parameters.json"
   },
   "keywords": [],
   "author": "",
@@ -25,8 +22,6 @@
     "@material-ui/core": "^4.11.1",
     "babel-loader": "^8.2.2",
     "express": "^4.17.1",
-    "express-handlebars": "^5.3.1",
-    "handlebars": "^4.7.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
