@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 
 import { makeStyles} from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
@@ -11,32 +12,33 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Hero() {
     const classes = useStyles();
+    const { t } = useTranslation();
 
     return (
       <Grid container className={classes.grid} >
         <Grid item xs={12} sm={4} >
           <ul>
-            <p align="left"><b>Network & Security</b></p>
-            <li>AWS (Japan) hosted for 24x7 reliability</li>
-            <li>All nodes secured behind a private VPC</li>
-            <li>Only Relay nodes accessible from the internet</li>
-            <li>Block Producer inacessible outside of the VPC</li>
-            <li>All keys in offline cold storage</li>
+            <p align="left"><b>{t("specssection.network.header")}:</b></p>
+            <li>{t("specssection.network.a")}</li>
+            <li>{t("specssection.network.b")}</li>
+            <li>{t("specssection.network.c")}</li>
+            <li>{t("specssection.network.d")}</li>
+            <li>{t("specssection.network.e")}</li>
           </ul>
         </Grid>
         <Grid item xs={12} sm={4} >
           <ul>
-            <p align="left"><b>Block Producer Node</b></p>
-            <li>AWS Linux</li>
-            <li>T3.Large | 2 vCPUs | 8 GB | 256 GB SSD</li>
+            <p align="left"><b>{t("specssection.producer.header")}:</b></p>
+            <li>{t("specssection.producer.a")}</li>
+            <li>{t("specssection.producer.b")}</li>
           </ul>
         </Grid>
         <Grid item xs={12} sm={4} >
           <ul>
-            <p align="left"><b>Relay Nodes</b></p>
-            <li>AWS Linux</li>
-            <li>T3.Medium | 2 vCPUs | 4 GB | 256 GB SSD</li>
-            <li>1-2 nodes</li>
+            <p align="left"><b>{t("specssection.relay.header")}:</b></p>
+            <li>{t("specssection.relay.a")}</li>
+            <li>{t("specssection.relay.b")}</li>
+            <li>{t("specssection.relay.c")}</li>
           </ul>
         </Grid>
       </Grid>

@@ -1,10 +1,11 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 
 import { makeStyles} from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-import HeroImage from '../../../images/CardanoJimaHero.png';
+import HeroImage from '../images/CardanoJimaHero.png';
 
 const useStyles = makeStyles((theme) => ({
   headingCommentChar: {
@@ -37,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Hero() {
     const classes = useStyles();
+    const { t } = useTranslation();
 
     return (
       <Grid container className={classes.grid}  >  
@@ -69,20 +71,20 @@ export default function Hero() {
             </Grid>
             <Grid item xs={8} >
               <Typography variant="h2" > 
-                Secure and reliable Cardano stakepool hosted in Japan. Start staking your Cardano with us from the <b>July 2021</b> by looking out for our ticker. 
+                {t("herosection.intro.copy")}<strong>{t("herosection.intro.launchdate")}</strong>
               </Typography>
               <br />
               <Typography variant="h3" > 
-                Ticker: <span className={classes.keywords}>JIMA</span> | 
-                Pledge: <span className={classes.keywords}>8,000</span> | 
-                Fee: <span className={classes.keywords}>2%</span> 
+                {t("herosection.poolinfo.tickerlabel")}: <span className={classes.keywords}>{t("herosection.poolinfo.ticker")}</span> |&nbsp;
+                {t("herosection.poolinfo.pledgelabel")}: <span className={classes.keywords}>{t("herosection.poolinfo.pledge")}</span> |&nbsp; 
+                {t("herosection.poolinfo.feelabel")}: <span className={classes.keywords}>{t("herosection.poolinfo.fee")}</span> 
               </Typography>
             </Grid>
           </Grid>
         </Grid>
         <Grid item xs={12} >
           <Grid item xs={6} className={classes.heroImageItem}>
-            <img src={HeroImage} alt="Cardano Jima Header" className={classes.heroImage} />
+            <img src={HeroImage} alt={t("herosection..heroimage")} className={classes.heroImage} />
           </Grid>
         </Grid>
       </Grid>
