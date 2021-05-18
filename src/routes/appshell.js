@@ -25,7 +25,10 @@ router.get('*', (req, res) => {
     const html = `
         <html>
             <head>
-                <title>Cardano Jima!</title>
+                <title>Cardano Jima. A Cardano stakepool hosted in AWS Japan</title>
+                <meta name="description" content="Highly available, reliable and secure in Cardano stakepoool hosted in AWS, Japan. Stake with us today via our pool ticker, JIMA.">
+                <meta name="canonical" content="https://www.cardanojima.io">
+                <meta name="robots" content="index, archive, nofollow">
                 <meta name="viewport" content="width=device-width">
                 <style id="css-server-side">${sheets.toString()}</style>
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />

@@ -69,12 +69,12 @@ export default function Hero() {
             </Grid>
             <Grid item xs={8} >
               <Typography variant="h2" > 
-                Secure and reliable Cardano stakepool hosted in Japan. Start staking your Cardano with us from the <b>4/July 2021</b> by by looking out for our ticker. 
+                Secure and reliable Cardano stakepool hosted in Japan. Start staking your Cardano with us from the <b>July 2021</b> by looking out for our ticker. 
               </Typography>
               <br />
               <Typography variant="h3" > 
                 Ticker: <span className={classes.keywords}>JIMA</span> | 
-                Pledge: <span className={classes.keywords}>10,000</span> | 
+                Pledge: <span className={classes.keywords}>8,000</span> | 
                 Fee: <span className={classes.keywords}>2%</span> 
               </Typography>
             </Grid>
@@ -82,7 +82,7 @@ export default function Hero() {
         </Grid>
         <Grid item xs={12} >
           <Grid item xs={6} className={classes.heroImageItem}>
-            <img src={HeroImage} alt="Cardano Jima" className={classes.heroImage} />
+            <img src={HeroImage} alt="Cardano Jima Header" className={classes.heroImage} />
           </Grid>
         </Grid>
       </Grid>
