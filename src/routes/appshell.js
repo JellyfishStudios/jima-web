@@ -8,7 +8,7 @@ import { CssBaseline } from '@material-ui/core';
 import theme from '../public/theme.js';
 import App from '../public/components/app.js';
 
-import "../public/localization/i18n";
+import { I18nextProvider } from 'react-i18next';
 
 const router = Express.Router();
 
@@ -17,13 +17,20 @@ router.get('*', (req, res) => {
 
     const content = ReactDOMServer.renderToString(
         sheets.collect(
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <App />
-            </ThemeProvider>
+            <I18nextProvider i18n={req.i18n}>
+                <ThemeProvider theme={theme}>
+                    <CssBaseline />
+                    <App />
+                </ThemeProvider>
+            </I18nextProvider>
         )
     );
 
+    const initialI18nStore = {};
+    req.i18n.languages.forEach(l => {
+        initialI18nStore[l] = req.i18n.services.resourceStore.data[l];
+    });
+    
     const html = `
         <html>
             <head>
@@ -35,6 +42,10 @@ router.get('*', (req, res) => {
                 <style id="css-server-side">${sheets.toString()}</style>
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+                <script>
+                    window.initialI18nStore = JSON.parse('${JSON.stringify(initialI18nStore)}');
+                    window.initialLanguage = '${req.i18n.language}';
+                </script>
             </head>
             <body>
                 <div id="app">${content}</div>

@@ -1,10 +1,9 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 
 import { makeStyles} from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-
-import { useTranslation } from "react-i18next";
 
 import HeroImage from '../images/CardanoJimaHero.png';
 
@@ -72,20 +71,20 @@ export default function Hero() {
             </Grid>
             <Grid item xs={8} >
               <Typography variant="h2" > 
-                {t("pitch")} 
+                {t("herosection.intro.copy")}<strong>{t("herosection.intro.launchdate")}</strong>
               </Typography>
               <br />
               <Typography variant="h3" > 
-                Ticker: <span className={classes.keywords}>JIMA</span> | 
-                Pledge: <span className={classes.keywords}>8,000</span> | 
-                Fee: <span className={classes.keywords}>2%</span> 
+                {t("herosection.poolinfo.tickerlabel")}: <span className={classes.keywords}>{t("herosection.poolinfo.ticker")}</span> |&nbsp;
+                {t("herosection.poolinfo.pledgelabel")}: <span className={classes.keywords}>{t("herosection.poolinfo.pledge")}</span> |&nbsp; 
+                {t("herosection.poolinfo.feelabel")}: <span className={classes.keywords}>{t("herosection.poolinfo.fee")}</span> 
               </Typography>
             </Grid>
           </Grid>
         </Grid>
         <Grid item xs={12} >
           <Grid item xs={6} className={classes.heroImageItem}>
-            <img src={HeroImage} alt="Cardano Jima Header" className={classes.heroImage} />
+            <img src={HeroImage} alt={t("herosection..heroimage")} className={classes.heroImage} />
           </Grid>
         </Grid>
       </Grid>

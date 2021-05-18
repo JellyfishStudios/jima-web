@@ -2,6 +2,9 @@ import path from 'path';
 import express from 'express';
 import appshell from './routes/appshell.js';
 
+import i18n from "./public/localization/i18n";
+import i18nMiddleware from "i18next-http-middleware";
+
 const port = 8080;
 const app = express();
 
@@ -31,6 +34,9 @@ else {
     app.use('/public', express.static(path.join(__dirname, '../dist/public')));
 }
 
+i18n.use(i18nMiddleware.LanguageDetector).init();
+
+app.use(i18nMiddleware.handle(i18n));
 app.use('/', appshell);
 
 app.listen(port, () => {
