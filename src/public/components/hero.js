@@ -4,7 +4,9 @@ import { makeStyles} from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-import HeroImage from '../../../images/CardanoJimaHero.png';
+import { useTranslation } from "react-i18next";
+
+import HeroImage from '../images/CardanoJimaHero.png';
 
 const useStyles = makeStyles((theme) => ({
   headingCommentChar: {
@@ -37,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Hero() {
     const classes = useStyles();
+    const { t } = useTranslation();
 
     return (
       <Grid container className={classes.grid}  >  
@@ -69,7 +72,7 @@ export default function Hero() {
             </Grid>
             <Grid item xs={8} >
               <Typography variant="h2" > 
-                Secure and reliable Cardano stakepool hosted in Japan. Start staking your Cardano with us from the <b>July 2021</b> by looking out for our ticker. 
+                {t("pitch")} 
               </Typography>
               <br />
               <Typography variant="h3" > 

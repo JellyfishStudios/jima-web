@@ -8,6 +8,8 @@ import { CssBaseline } from '@material-ui/core';
 import theme from '../public/theme.js';
 import App from '../public/components/app.js';
 
+import "../public/localization/i18n";
+
 const router = Express.Router();
 
 router.get('*', (req, res) => {

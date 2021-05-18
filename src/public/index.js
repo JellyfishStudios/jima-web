@@ -7,6 +7,8 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './theme.js';
 import App from './components/app.js';
 
+import "./localization/i18n";
+
 function Main() {
   React.useEffect(() => {
     const styles = document.querySelector('#css-server-side');
@@ -18,7 +20,7 @@ function Main() {
   return (
     <ThemeProvider theme={theme}>
         <CssBaseline />
-          <App />
+        <App />
     </ThemeProvider>
   );
 }
