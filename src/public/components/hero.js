@@ -65,24 +65,6 @@ export default function Hero() {
             </div>
         </Grid>
         <Grid item xs={12} >
-          <Grid container >
-            <Grid item xs={4} >
-              &nbsp;
-            </Grid>
-            <Grid item xs={8} >
-              <Typography variant="h2" > 
-                {t("herosection.intro.copy", { launch: t("herosection.intro.launch")})}
-              </Typography>
-              <br />
-              <Typography variant="h3" > 
-                {t("herosection.poolinfo.tickerlabel")}: <span className={classes.keywords}>{t("herosection.poolinfo.ticker")}</span> |&nbsp;
-                {t("herosection.poolinfo.pledgelabel")}: <span className={classes.keywords}>{t("herosection.poolinfo.pledge")}</span> |&nbsp; 
-                {t("herosection.poolinfo.feelabel")}: <span className={classes.keywords}>{t("herosection.poolinfo.fee")}</span> 
-              </Typography>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item xs={12} >
           <Grid item xs={6} className={classes.heroImageItem}>
             <img src={HeroImage} alt={t("herosection..heroimage")} className={classes.heroImage} />
           </Grid>

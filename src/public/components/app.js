@@ -7,6 +7,7 @@ import Container from '@material-ui/core/Container';
 import Hero from './hero.js';
 import Specs from './specs.js';
 import Footer from './footer.js';
+import Intro from './intro.js';
 
 const useStyles = makeStyles((theme) => ({
     grid: {
@@ -41,6 +42,11 @@ export default function App() {
                 </Container>
             </Grid>
             <Grid item xs={12} className={classes.gridItemAlternative} >
+                <Container>
+                    <Intro />
+                </Container>   
+            </Grid>
+            <Grid item xs={12} className={classes.gridItem} >
                 <Container>
                     <Specs />
                 </Container>   
