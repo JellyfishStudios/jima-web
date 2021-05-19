@@ -20,6 +20,9 @@ i18n
       jp: {
         translation: TRANSLATIONS_JP
       }
+    },
+    interpolation: {
+      escapeValue: false
     }
   });
 

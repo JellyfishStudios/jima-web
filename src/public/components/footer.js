@@ -18,7 +18,7 @@ export default function Footer() {
 
     return (
       <Grid container className={classes.grid}>  
-        <Grid item xs={12} textAlign= 'center'>
+        <Grid item xs={12}>
           <p align='center'>{t("footersection.copyright")}</p>
         </Grid>
       </Grid>
