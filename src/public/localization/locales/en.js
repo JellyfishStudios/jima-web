@@ -38,4 +38,4 @@ export const TRANSLATIONS_EN = {
     footersection: {
         copyright: "© CARDANOJIMA.IO"
     }
-}
+};
