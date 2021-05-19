@@ -39,6 +39,7 @@ export const TRANSLATIONS_JP = {
         }
     },
     footersection: {
-        copyright: "© CARDANOJIMA.IO"
+        copyright: "© CARDANOJIMA.IO",
+        languageswitch: "English"
     }
 };
