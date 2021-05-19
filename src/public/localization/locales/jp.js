@@ -1,7 +1,7 @@
 export const TRANSLATIONS_JP = {
     meta: {
-        title: "Cardano Jima. A Cardano stakepool hosted in AWS Japan",
-        description: "Highly available, reliable and secure in Cardano stakepoool hosted in AWS, Japan. Stake with us today via our pool ticker, JIMA."
+        title: "Cardano Jima。日本のAWSでCardanoステークプール。",
+        description: "高可用性、信頼性、安全性. ADAトーケンの利息を稼ぐのために, JIMAと一緒にステークにしましょう。"
     },
     herosection: {
         intro: {
