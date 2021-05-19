@@ -25,11 +25,11 @@ afterEach(() => {
 });
 
 describe('App component', () => {
-  it('should show correct footer', () => {
+  it('should show correct footer loc ID', () => {
     act(() => {
       ReactDOM.render(<Footer />, container);
     });
 
-    expect(container.querySelector("p").textContent).to.equal("© CARDANOJIMA.IO");
+    expect(container.querySelector("p").textContent).to.equal("footersection.copyright");
   });
 });
