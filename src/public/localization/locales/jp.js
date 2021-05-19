@@ -1,41 +1,45 @@
 export const TRANSLATIONS_JP = {
+    meta: {
+        title: "Cardano Jima。日本のAWSでCardanoステークプール。",
+        description: "高可用性、信頼性、安全性. ADAトーケンの利息を稼ぐのために, JIMAと一緒にステークにしましょう。"
+    },
     herosection: {
         intro: {
-            copy: "Secure and reliable Cardano stakepool hosted in Japan. Start staking your Cardano with us from  ",
-            launchdate: "July 2021.",
+            copy: "ADAトーケンの利息を稼ぐのために{{launch}}から日本のAWSで新しいCardanoプラットフォームのステークプールになりました。一緒にステークにしましょうか？",
+            launch: "７月２０２１年",
         },
         poolinfo: {
-            tickerlabel: "Ticker",
+            tickerlabel: "ティッカー",
             ticker: "JIMA",
-            pledgelabel: "Pledge",
+            pledgelabel: "言質",
             pledge: "8,000",
-            feelabel: "Fee",
+            feelabel: "料金",
             fee: "2%",
         },
-        heroimage: "Cardano Jima Header"
+        heroimage: "Cardano Jima マーク"
     },
     specssection: {
         network: {
-            header: "Network & Security",
-            a: "AWS (Japan) hosted for 24x7 reliability",
-            b: "All nodes secured behind a private VPC",
-            c: "Only Relay nodes accessible from the internet",
-            d: "Block Producer inacessible outside of the VPC",
-            e: "All keys in offline cold storage"
+            header: "ネットワークとセキュリティ",
+            a: "AWS「日本」データセンターで可用性は24x7",
+            b: "プライベートVPCで保護されたノード",
+            c: "インターネットからアクセスは可能なリレーノードのみ",
+            d: "オフラインのコールドストレージで保存されているすべてのキー"
         },
         producer: {
-            header: "Block Producer Node",
-            a: "AWS Linux",
+            header: "Block Producer ノード",
+            a: "AWS リナックス",
             b: "T3.Large | 2 vCPUs | 8 GB | 256 GB SSD"
         },
         relay: {
-            header: "Relay Nodes",
-            a: "AWS Linux",
+            header: "Relay ノード",
+            a: "AWS リナックス",
             b: "T3.Medium | 2 vCPUs | 4 GB | 256 GB SSD",
-            c: "1-2 nodes"
+            c: "1-2 ノード"
         }
     },
     footersection: {
-        copyright: "© CARDANOJIMA.IO"
+        copyright: "© CARDANOJIMA.IO",
+        languageswitch: "English"
     }
 };

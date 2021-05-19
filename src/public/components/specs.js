@@ -23,7 +23,6 @@ export default function Hero() {
             <li>{t("specssection.network.b")}</li>
             <li>{t("specssection.network.c")}</li>
             <li>{t("specssection.network.d")}</li>
-            <li>{t("specssection.network.e")}</li>
           </ul>
         </Grid>
         <Grid item xs={12} sm={4} >

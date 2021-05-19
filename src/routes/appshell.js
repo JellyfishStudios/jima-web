@@ -30,14 +30,16 @@ router.get('*', (req, res) => {
     req.i18n.languages.forEach(l => {
         initialI18nStore[l] = req.i18n.services.resourceStore.data[l];
     });
+
+    console.log();
     
     const html = `
         <html>
             <head>
-                <title>Cardano Jima. A Cardano stakepool hosted in AWS Japan</title>
-                <meta name="description" content="Highly available, reliable and secure in Cardano stakepoool hosted in AWS, Japan. Stake with us today via our pool ticker, JIMA.">
+                <title>${req.i18n.t("meta.title")}</title>
+                <meta name="description" content="${req.i18n.t("meta.description")}">
                 <meta name="canonical" content="https://www.cardanojima.io">
-                <meta name="robots" content="index, archive, nofollow">
+                <meta name="robots" content="index, noarchive, nofollow">
                 <meta name="viewport" content="width=device-width">
                 <style id="css-server-side">${sheets.toString()}</style>
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />

@@ -71,7 +71,7 @@ export default function Hero() {
             </Grid>
             <Grid item xs={8} >
               <Typography variant="h2" > 
-                {t("herosection.intro.copy")}<strong>{t("herosection.intro.launchdate")}</strong>
+                {t("herosection.intro.copy", { launch: t("herosection.intro.launch")})}
               </Typography>
               <br />
               <Typography variant="h3" > 
