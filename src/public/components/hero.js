@@ -9,7 +9,11 @@ import HeroImage from '../images/CardanoJimaHero.png';
 
 const useStyles = makeStyles((theme) => ({
   headingCommentChar: {
-    color: 'green'
+    color: 'white'
+  },
+  asciiContainer: {
+    fontFamily: 'monospace',
+    whiteSpace: 'pre'
   },
   keywords: {
     color: 'green',
@@ -26,6 +30,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end'
   },
   grid: {
+    alignContent: 'center',
+    alignItems: 'center',
     maxWidth: '470px',
     [theme.breakpoints.up('sm')]: {
       maxWidth: '800px',
@@ -33,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       maxWidth: '1080px',
     }
+  },
+  gridItem: {
+    alignContent: 'center'
   }
 }));
 
@@ -41,30 +50,27 @@ export default function Hero() {
     const { t } = useTranslation();
 
     return (
-      <Grid container className={classes.grid}  >  
-        <Grid item xs={12} >
-          <div>
-            <Typography variant="h1" >    
+      <Grid container className={classes.grid}>  
+        <Grid item xs={12} className={classes.gridItem}>
+          <Typography variant='h1' align='center'>
               {/* https://patorjk.com/ font: Modular */}
-              <span className={classes.headingCommentChar}>#</span>   _______  _______  ______    ______   _______  __    _  _______  <br />
-              <span className={classes.headingCommentChar}>#</span>  |       ||   _   ||    _ |  |      | |   _   ||  |  | ||       | <br />
-              <span className={classes.headingCommentChar}>#</span>  |       ||  |_|  ||   | ||  |  _    ||  |_|  ||   |_| ||   _   | <br />
-              <span className={classes.headingCommentChar}>#</span>  |       ||       ||   |_||_ | | |   ||       ||       ||  | |  | <br />
-              <span className={classes.headingCommentChar}>#</span>  |      _||       ||    __  || |_|   ||       ||  _    ||  |_|  | <br />
-              <span className={classes.headingCommentChar}>#</span>  |     |_ |   _   ||   |  | ||       ||   _   || | |   ||       | <br />
-              <span className={classes.headingCommentChar}>#</span>  |_______||__| |__||___|  |_||______| |__| |__||_|  |__||_______| <br />
-              <span className={classes.headingCommentChar}>#</span>                                      ___  ___   __   __  _______  <br />
-              <span className={classes.headingCommentChar}>#</span>                                     |   ||   | |  |_|  ||   _   | <br />
-              <span className={classes.headingCommentChar}>#</span>                                     |   ||   | |       ||  |_|  | <br />
-              <span className={classes.headingCommentChar}>#</span>                                     |   ||   | |       ||       | <br />
-              <span className={classes.headingCommentChar}>#</span>                                  ___|   ||   | |       ||       | <br />
-              <span className={classes.headingCommentChar}>#</span>                                 |       ||   | | ||_|| ||   _   | <br />
-              <span className={classes.headingCommentChar}>#</span>                                 |_______||___| |_|   |_||__| |__| <br />
-              <span className={classes.headingCommentChar}>#</span>   
-            </Typography>
-            </div>
+              <span className={classes.asciiContainer}> _______  _______  ______    ______   _______  __    _  _______ </span><br />
+              <span className={classes.asciiContainer}>|       ||   _   ||    _ |  |      | |   _   ||  |  | ||       |</span><br />
+              <span className={classes.asciiContainer}>|       ||  |_|  ||   | ||  |  _    ||  |_|  ||   |_| ||   _   |</span><br />
+              <span className={classes.asciiContainer}>|       ||       ||   |_||_ | | |   ||       ||       ||  | |  |</span><br />
+              <span className={classes.asciiContainer}>|      _||       ||    __  || |_|   ||       ||  _    ||  |_|  |</span><br />
+              <span className={classes.asciiContainer}>|     |_ |   _   ||   |  | ||       ||   _   || | |   ||       |</span><br />
+              <span className={classes.asciiContainer}>|_______||__| |__||___|  |_||______| |__| |__||_|  |__||_______|</span><br />
+              <span className={classes.asciiContainer}>                                    ___  ___   __   __  _______ </span><br />
+              <span className={classes.asciiContainer}>                                   |   ||   | |  |_|  ||   _   |</span><br />
+              <span className={classes.asciiContainer}>                                   |   ||   | |       ||  |_|  |</span><br />
+              <span className={classes.asciiContainer}>                                   |   ||   | |       ||       |</span><br />
+              <span className={classes.asciiContainer}>                                ___|   ||   | |       ||       |</span><br />
+              <span className={classes.asciiContainer}>                               |       ||   | | ||_|| ||   _   |</span><br />
+              <span className={classes.asciiContainer}>                               |_______||___| |_|   |_||__| |__|</span><br />
+          </Typography>
         </Grid>
-        <Grid item xs={12} >
+        <Grid item xs={12} className={classes.gridItem}>
           <Grid item xs={6} className={classes.heroImageItem}>
             <img src={HeroImage} alt={t("herosection..heroimage")} className={classes.heroImage} />
           </Grid>

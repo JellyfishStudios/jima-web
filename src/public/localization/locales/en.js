@@ -14,7 +14,7 @@ export const TRANSLATIONS_EN = {
             pledgelabel: "Pledge",
             pledge: "8,000",
             feelabel: "Fee",
-            fee: "2%",
+            fee: "3%",
         },
         heroimage: "Cardano Jima Header"
     },

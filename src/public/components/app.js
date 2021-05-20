@@ -27,7 +27,8 @@ const useStyles = makeStyles((theme) => ({
     gridItemAlternative: {
         backgroundColor: 'black',
         width: '100%',
-        color: 'white'
+        color: 'white',
+        alignContent: 'center'
     }
 }));
 

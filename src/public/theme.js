@@ -7,10 +7,7 @@ const theme = createMuiTheme({
 });
 
 theme.typography.h1 = {
-    fontFamily: 'monospace',
-    whiteSpace: 'pre',
-    fontSize: '0.5rem',
-    
+    fontSize: '0.5rem',    
     [theme.breakpoints.up('sm')]: {
       fontSize: '1rem',
     },
@@ -20,9 +17,8 @@ theme.typography.h1 = {
   };
 
 theme.typography.h2 = {
-    fontSize: '0.9rem',
     fontWeight: 'normal',
-    
+    fontSize: '0.9rem',
     [theme.breakpoints.up('sm')]: {
       fontSize: '1rem',
     },
@@ -32,9 +28,8 @@ theme.typography.h2 = {
 };
 
 theme.typography.h3 = {
-  fontSize: '0.8rem',
   fontWeight: 'normal',
-  
+  fontSize: '0.8rem',
   [theme.breakpoints.up('sm')]: {
     fontSize: '1rem',
   },
