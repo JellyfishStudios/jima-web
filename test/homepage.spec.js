@@ -6,6 +6,8 @@ import { expect } from 'chai';
 
 import Footer from '../src/public/components/footer.js';
 
+import "../src/public/localization/i18n";
+
 var jsdom = require('mocha-jsdom');
 
 global.document = jsdom({
