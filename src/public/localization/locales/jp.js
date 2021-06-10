@@ -12,7 +12,7 @@ export const TRANSLATIONS_JP = {
             tickerlabel: "ティッカー",
             ticker: "JIMA",
             pledgelabel: "言質",
-            pledge: "8,000",
+            pledge: "7,000",
             feelabel: "料金",
             fee: "2%",
         },
