@@ -12,9 +12,9 @@ export const TRANSLATIONS_EN = {
             tickerlabel: "Ticker",
             ticker: "JIMA",
             pledgelabel: "Pledge",
-            pledge: "8,000",
+            pledge: "7,000",
             feelabel: "Fee",
-            fee: "3%",
+            fee: "2%",
         },
         heroimage: "Cardano Jima Header"
     },
