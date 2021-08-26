@@ -6,7 +6,7 @@ export const TRANSLATIONS_EN = {
     herosection: {
         intro: {
             copy: "Secure and reliable Cardano stakepool hosted in Japan. Start staking your Cardano with us from {{launch}}.",
-            launch: "July 2021",
+            launch: "October 2021",
         },
         poolinfo: {
             tickerlabel: "Ticker",
@@ -14,7 +14,7 @@ export const TRANSLATIONS_EN = {
             pledgelabel: "Pledge",
             pledge: "7,000",
             feelabel: "Fee",
-            fee: "2%",
+            fee: "3%",
         },
         heroimage: "Cardano Jima Header"
     },
