@@ -6,7 +6,7 @@ export const TRANSLATIONS_JP = {
     herosection: {
         intro: {
             copy: "ADAトーケンの利息を稼ぐのために{{launch}}から日本のAWSで新しいCardanoプラットフォームのステークプールになりました。一緒にステークにしましょうか？",
-            launch: "７月２０２１年",
+            launch: "10月２０２１年",
         },
         poolinfo: {
             tickerlabel: "ティッカー",
@@ -14,7 +14,7 @@ export const TRANSLATIONS_JP = {
             pledgelabel: "言質",
             pledge: "7,000",
             feelabel: "料金",
-            fee: "2%",
+            fee: "3%",
         },
         heroimage: "Cardano Jima マーク"
     },
